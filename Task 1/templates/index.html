@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Species Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom right, #ff4500, #000000); /* Red to black gradient background */
+            color: #ffffff; /* White text color */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+        }
+        h1 {
+            text-align: center;
+            color: #ff4500; /* Red heading color */
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            color: #ffffff; /* White label color */
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white input background */
+            color: #ffffff; /* White text color */
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #ff4500; /* Red border on focus */
+        }
+        input[type="submit"] {
+            padding: 12px;
+            color: #ffffff; /* White text color */
+            background-color: #ff4500; /* Red submit button */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #b22222; /* Darker red on hover */
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            color: #ffffff; /* White result text */
+        }
+        .iris-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Iris Species</h1>
+        <img src="https://wallpapercave.com/wp/wp6413783.jpg" alt="Iris Flower" class="iris-image">
+        <form action='/predict' method="POST">
+            <label for="sepal_length">Sepal Length:</label>
+            <input type='text' name='sepal_length' id="sepal_length" required>
+            <label for="sepal_width">Sepal Width:</label>
+            <input type='text' name='sepal_width' id="sepal_width" required>
+            <label for="petal_length">Petal Length:</label>
+            <input type='text' name='petal_length' id="petal_length" required>
+            <label for="petal_width">Petal Width:</label>
+            <input type='text' name='petal_width' id="petal_width" required>
+            <input type='submit' value='Predict'>
+        </form>
+        <div class="result">
+            Predicted Class: <span id="result"></span>
+        </div>
+    </div>
+
+    <script>
+        // Dummy JavaScript for demonstration
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('result').textContent = 'Setosa'; // Replace with actual result
+        });
+    </script>
+</body>
+</html>
